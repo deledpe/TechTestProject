@@ -62,10 +62,10 @@ public class RegistrationForm {
 		@FindBy(how=How.NAME,using="comment") 
 		WebElement enter_description;
 		
-		@FindBy(how=How.CLASS_NAME,using="btn btn-default") 
+		@FindBy(how=How.XPATH,using="//button[@type='submit']") 
 		WebElement click_button;
 		
-		@FindBy(how=How.CSS,using=" ") 		
+		@FindBy(how=How.XPATH,using="//div[@id='home']/h3") 		
 		WebElement welcome_Message;
 		
 		
@@ -91,7 +91,7 @@ public class RegistrationForm {
 			
 			try {
 					String view_Welcome_Message = welcome_Message.getText();
-					System.out.println("  " + view_Welcome_Message);
+					System.out.println("Registration is successful " + view_Welcome_Message);
 					takesScreenshot(" Welcome message is displayed ");
 			}catch(Exception e) {
 				
