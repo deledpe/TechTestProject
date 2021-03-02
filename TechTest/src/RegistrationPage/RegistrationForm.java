@@ -22,8 +22,8 @@ public class RegistrationForm {
 		this.driver=driver;
 	}	
 	
-		@FindBy(how=How.LINK_TEXT,using="No, thanks!") 		
-		WebElement click_Popbox;			
+	//	@FindBy(how=How.LINK_TEXT,using="No, thanks!") 		
+	//	WebElement click_Popbox;			
 				
 		@FindBy(how=How.LINK_TEXT,using="Input Forms") 
 		WebElement GotoInputForm;
@@ -62,16 +62,19 @@ public class RegistrationForm {
 		@FindBy(how=How.NAME,using="comment") 
 		WebElement enter_description;
 		
-		@FindBy(how=How.CLASS_NAME,using="btn btn-default") 
+		@FindBy(how=How.XPATH,using="//button[@type='submit']") 
 		WebElement click_button;
 		
-		@FindBy(how=How.CSS,using=" ") 		
+		@FindBy(how=How.XPATH,using="//div[@id='home']/h3") 		
 		WebElement welcome_Message;
 		
+
 		
-		public void ValidRegForm (String vFirstname, String vlastname, String vEmail, String vPhone, String vAddress, String vCity, String vZip, String vState, String vHosting, String vDescription) throws IOException{
+		
+		public void ValidRegForm (String vFirstname, String vlastname, String vEmail, String vPhone, String vAddress, String vCity, String vZip, String vState, String vHosting, String vDescription) throws IOException, Throwable{
 			
-	//		click_Popbox.click();
+	
+        //    click_Popbox.click();
 			GotoInputForm.click();
 			GotoSubmitForm.click();
 			
@@ -85,13 +88,14 @@ public class RegistrationForm {
 			enter_state.sendKeys(vState);
 			enter_hosting.sendKeys(vHosting);
 			enter_description.sendKeys(vDescription);
-			
+			click_button.click();
+			Thread.sleep(3);
 			welcome_Message.getText();
 			
 			
 			try {
 					String view_Welcome_Message = welcome_Message.getText();
-					System.out.println("  " + view_Welcome_Message);
+					System.out.println("Registration is unsuccessful " + view_Welcome_Message);
 					takesScreenshot(" Welcome message is displayed ");
 			}catch(Exception e) {
 				
@@ -103,7 +107,9 @@ public class RegistrationForm {
 	       public static void takesScreenshot (String filename) throws IOException {    			
 	       	File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
-	          FileHandler.copy(file, new File ("C:/Users/Allogogate/git/SeleniumDataDrivenFrameworkGit/POMPAGEFactory/Screenshots/" + filename+".png"))	;
+	       // FileHandler.copy(file, new File ("C:/Users/Allogogate/git/SeleniumDataDrivenFrameworkGit/POMPAGEFactory/Screenshots/" + filename+".png"));
+	          FileHandler.copy(file, new File ("C:\\Users\\bamid\\eclipse-workspace\\TechTest\\Screenhots\\" + filename+".png"));
+	          
 	       }   
 		
 

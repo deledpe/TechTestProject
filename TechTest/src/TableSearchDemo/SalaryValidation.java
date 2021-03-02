@@ -48,7 +48,7 @@ public class SalaryValidation {
         	
 	        }
 	        else {
-	        	System.out.println("No employee with such as salary");
+	        	System.out.println("No employee with has such salary");
             }
 	        driver.close();
 	}

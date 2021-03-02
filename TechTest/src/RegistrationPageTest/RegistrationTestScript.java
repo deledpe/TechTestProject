@@ -15,7 +15,7 @@ public class RegistrationTestScript {
 	
 	
 	@Test
-	public void verifySearch () throws IOException {
+	public void verifySearch () throws Throwable {
 				
 		WebDriver driver =browserFactory.startBrowser("IE","https://www.seleniumeasy.com/test/");
 	
@@ -23,6 +23,7 @@ public class RegistrationTestScript {
 		 	 
 //		 ValidRegForm.ValidRegForm(vFirstname, vlastname, vEmail, vPhone, vAddress, vCity, vZip, vState, vHosting, vDescription);
 		 
+
 		 ValidRegForm.ValidRegForm("john","Tester", "john@gmail.com", "078976666666", "123 london rd", "London", "SW104Gh", "London", "www://johnqa.com", "Hello world");
 		 
 		 driver.quit();  		
